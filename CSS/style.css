@@ -1,43 +1,104 @@
-.Body{
+.Body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 90vh;
-}
-.container{
-    justify-content: center;
+}  
+  .card {
     text-align: center;
-    border: solid;
-    background-color: aqua;
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 50%;
+    margin-top: 100px;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+h1 {
+    color: red;
 }
-.list-of-task{
-    text-align: center;
+
+.input-container {
+    margin-bottom: 20px;
 }
-.Add-btn{
-    margin-left: 5px;
-}
-.Sort-btn{
-    margin-right: 5px;
-}
-button{
+
+.Input {
+    width: 97%;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
     background-color: black;
-    color: aliceblue;
-    width: 70px;
-    height: 30px;
-    border-radius: 20%;
+    color: white;
 }
-.Input{
-    text-align: center;
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.Sort-btn,
+.Add-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: auto;
+}
+
+button.done-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
     height: 40px;
-    border-color: black;
-    width: 100%;
+}
+  
+button.delete-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 40px;
+    width: 60px;
+    position: relative;
+    top: -5.5px;
+}
+
+.Sort-btn:hover,
+.Add-btn:hover {
+    background-color: darkred;
+}
+
+#list-of-items {
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
     background-color: black;
-    color: antiquewhite;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid red;
 }
-.Input-container{
-    margin: 20px
-}
-.btn-container{
-    width: 100%;
-}
+
+li.Done {
+    text-decoration: line-through;
+    color: #888; /* Change color for completed tasks */
+  }

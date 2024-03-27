@@ -51,7 +51,7 @@ function displayArray(Array) {
     }
 
     liTag.innerHTML = `
-      <input type="checkbox" class="checkbox" ${Done}>
+      <button class="done-button" ${Done}><svg width="20px" height="20px" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20.664 5.253a1 1 0 0 1 .083 1.411l-10.666 12a1 1 0 0 1-1.495 0l-5.333-6a1 1 0 0 1 1.494-1.328l4.586 5.159 9.92-11.16a1 1 0 0 1 1.411-.082z" fill="#ffffff"/></svg></button>
       ${item.name}
       <button class="delete-button">X</button>
     `;
@@ -91,6 +91,7 @@ function toggle(id) {
   addToLocalStorage(Array);
 }
 
+
 // deletes item from Task list
 function deleteTask(id) {
   // filters out the <li> with the id and updates the Array array
@@ -106,17 +107,19 @@ function deleteTask(id) {
 // initially get everything from localStorage
 getFromLocalStorage();
 
-// addEventListener <ul>.
 itemsList.addEventListener('click', function(event) {
-  if (event.target.type === 'checkbox') {
-    toggle(event.target.parentElement.getAttribute('data-key'));
+  // done-button
+  if (event.target.classList.contains('done-button')) {
+    const itemId = event.target.parentElement.getAttribute('data-key');
+    toggle(itemId);
   }
-
   // delete-button
   if (event.target.classList.contains('delete-button')) {
-    deleteTask(event.target.parentElement.getAttribute('data-key'));
+    const itemId = event.target.parentElement.getAttribute('data-key');
+    deleteTask(itemId);
   }
 });
+
 
 // sort an array
 sort.addEventListener("click", ()=>{
